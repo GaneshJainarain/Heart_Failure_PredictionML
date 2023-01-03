@@ -41,3 +41,4 @@ print("\n")
 print(df.describe().T)
 img = px.imshow(df.corr(),title="Correlation Plot of the Heat Failure Prediction")
 #img.show()
+
