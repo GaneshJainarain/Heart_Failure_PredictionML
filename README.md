@@ -60,3 +60,17 @@ So, as we can see here the object data has been converted to string
 - `Oldpeak:` oldpeak = ST [Numeric value measured in depression]
 - `ST_Slope:` the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
 - `HeartDisease:` output class [1: heart disease, 0: Normal]
+
+
+### Exploratory Data Analysis
+
+First Question should be why do we need this ??
+Out Come of this phase is as given below :
+
+- Understanding the given dataset and helps clean up the given dataset.
+- It gives you a clear picture of the features and the relationships between them.
+- Providing guidelines for essential variables and leaving behind/removing non-essential variables.
+- Handling Missing values or human error.
+- Identifying outliers.
+- EDA process would be maximizing insights of a dataset.
+- This process is time-consuming but very effective,
