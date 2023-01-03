@@ -73,4 +73,4 @@ Out Come of this phase is as given below :
 - Handling Missing values or human error.
 - Identifying outliers.
 - EDA process would be maximizing insights of a dataset.
-- This process is time-consuming but very effective,
+- This process is time-consuming but very effective, 
