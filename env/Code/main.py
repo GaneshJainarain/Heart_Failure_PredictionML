@@ -40,5 +40,21 @@ print("\n")
 #print(df.head())
 print(df.describe().T)
 img = px.imshow(df.corr(),title="Correlation Plot of the Heart Failure Prediction")
-img.show()
+#img.show()
 
+# Shows the Distribution of Heat Diseases with respect to male and female
+fig=px.histogram(df, 
+                 x="HeartDisease",
+                 color="Sex",
+                 hover_data=df.columns,
+                 title="Distribution of Heart Diseases",
+                 barmode="group")
+fig.show()
+
+fig1 =px.histogram(df,
+                 x="ChestPainType",
+                 color="Sex",
+                 hover_data=df.columns,
+                 title="Types of Chest Pain"
+                )
+fig1.show()
