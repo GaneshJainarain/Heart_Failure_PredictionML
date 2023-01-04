@@ -97,3 +97,21 @@ img.show()
 ```
 ![Correlation Plot](env/Code/TerminalOutput/CorrelationPlot.png)
 
+Here we can see Heart Disease has a high negative correlation with "MaxHR" and somewhat negative correlation with "Cholesterol", where as here positive correlation with "Oldpeak","FastingBS" and "RestingBP"
+
+```python
+
+# Shows the Distribution of Heat Diseases with respect to male and female
+fig=px.histogram(df, 
+                 x="HeartDisease",
+                 color="Sex",
+                 hover_data=df.columns,
+                 title="Distribution of Heart Diseases",
+                 barmode="group")
+fig.show()
+
+```
+Shows the Distribution of Heat Diseases with respect to male and female
+![Distribution Of Heart Disease](env/Code/TerminalOutput/DistributionHeartDis.png)
+
+
