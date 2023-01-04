@@ -49,7 +49,7 @@ fig=px.histogram(df,
                  hover_data=df.columns,
                  title="Distribution of Heart Diseases",
                  barmode="group")
-fig.show()
+#fig.show()
 
 fig1 =px.histogram(df,
                  x="ChestPainType",
@@ -57,4 +57,10 @@ fig1 =px.histogram(df,
                  hover_data=df.columns,
                  title="Types of Chest Pain"
                 )
-fig1.show()
+#fig1.show()
+
+fig2 = px.histogram(df,
+                 x="Sex",
+                 hover_data=df.columns,
+                 title="Sex Ratio in the Data")
+fig2.show()
