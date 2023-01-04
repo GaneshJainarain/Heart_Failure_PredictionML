@@ -74,3 +74,17 @@ Out Come of this phase is as given below :
 - Identifying outliers.
 - EDA process would be maximizing insights of a dataset.
 - This process is time-consuming but very effective, 
+
+### Correlation Matrix
+Its necessary to remove correlated variables to improve your model.One can find correlations using pandas “.corr()” function and can visualize the correlation matrix using plotly express.
+
+- Lighter shades represents positive correlation
+- Darker shades represents negative correlation
+
+```python 
+
+img = px.imshow(df.corr(),title="Correlation Plot of the Heart Failure Prediction")
+img.show()
+
+```
+![Correlation Plot](env/Code/TerminalOutput/CorrelationPlot.png)
