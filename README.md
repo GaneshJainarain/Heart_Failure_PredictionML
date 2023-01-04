@@ -129,10 +129,23 @@ fig1.show()
 
 `Sex Ratio`
 ```python
-fig = px.histogram(df,
+fig2 = px.histogram(df,
                  x="Sex",
                  hover_data=df.columns,
                  title="Sex Ratio in the Data")
-fig.show()
+fig2.show()
 ```
 ![Sex Ratio](env/Code/TerminalOutput/SexRatio.png)
+
+`Distribution of Resting ECG`
+```python
+fig3 = px.histogram(df,
+                 x="RestingECG",
+                 hover_data=df.columns,
+                 title="Distribution of Resting ECG")
+fig3.show()
+```
+![Distribution of Resting ECG](env/Code/TerminalOutput/DistributionRestingECG.png)
+
+
+To plot multiple pairwise bivariate distributions in a dataset, you can use the pairplot() function. This shows the relationship for (n, 2) combination of variable in a DataFrame as a matrix of plots and the diagonal plots are the univariate plots.
