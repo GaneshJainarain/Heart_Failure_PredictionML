@@ -149,8 +149,23 @@ fig3.show()
 
 `Pair Plots`
 
-To plot multiple pairwise bivariate distributions in a dataset, you can use the pairplot() function. This shows the relationship for (n, 2) combination of variable in a DataFrame as a matrix of plots and the diagonal plots are the univariate plots.
+To plot multiple pairwise bivariate distributions in a dataset, you can use the `pairplot()` function. This shows the relationship for (n, 2) combination of variable in a DataFrame as a matrix of plots and the diagonal plots are the univariate plots.
 
-An effective way to familiarize with a dataset during exploratory data analysis is using a pairs plot (also known as a scatter plot matrix). A pairs plot allows to see both the distribution of single variables and relationships between two variables in a dataset.
+An effective way to familiarize with a dataset during exploratory data analysis is using a pairs plot (also known as a scatter plot matrix). A pairs plot allows to see both the `distribution of single variables and relationships between two variables in a dataset.`
 
-Pair plots are a great method to identify trends for follow-up analysis and, fortunately,
+Pair plots are a great method to identify trends for follow-up analysis.
+
+By default, this function will create a grid of Axes such that each numeric variable in data will by shared across the y-axes across a single row and the x-axes across a single column. The diagonal plots are treated differently: a univariate distribution plot is drawn to show the marginal distribution of the data in each column.
+
+
+```python
+plt.figure(figsize=(12,10))
+sns.pairplot(df,hue="HeartDisease")
+plt.title("Looking for Insights in Data")
+plt.legend("HeartDisease")
+plt.tight_layout()
+plt.plot()
+plt.show()
+```
+
+![Distribution of Resting ECG](env/Code/TerminalOutput/PairPlot.png)
