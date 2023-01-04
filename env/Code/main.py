@@ -63,4 +63,10 @@ fig2 = px.histogram(df,
                  x="Sex",
                  hover_data=df.columns,
                  title="Sex Ratio in the Data")
-fig2.show()
+#fig2.show()
+
+fig3 = px.histogram(df,
+                 x="RestingECG",
+                 hover_data=df.columns,
+                 title="Distribution of Resting ECG")
+fig3.show()
