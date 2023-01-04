@@ -39,6 +39,6 @@ print("\n")
 
 #print(df.head())
 print(df.describe().T)
-img = px.imshow(df.corr(),title="Correlation Plot of the Heat Failure Prediction")
-#img.show()
+img = px.imshow(df.corr(),title="Correlation Plot of the Heart Failure Prediction")
+img.show()
 
