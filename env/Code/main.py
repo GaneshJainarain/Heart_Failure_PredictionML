@@ -70,11 +70,21 @@ fig3 = px.histogram(df,
                  hover_data=df.columns,
                  title="Distribution of Resting ECG")
 #fig3.show()
-
+'''
 plt.figure(figsize=(12,10))
 sns.pairplot(df,hue="HeartDisease")
 plt.title("Looking for Insights in Data")
 plt.legend("HeartDisease")
 plt.tight_layout()
 plt.plot()
+plt.show()
+'''
+
+plt.figure(figsize=(15,10))
+for i,col in enumerate(df.columns,1):
+    plt.subplot(4,3,i)
+    plt.title(f"Distribution of {col} Data")
+    sns.histplot(df[col],kde=True)
+    plt.tight_layout()
+    plt.plot()
 plt.show()
