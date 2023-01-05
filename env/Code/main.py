@@ -88,3 +88,6 @@ for i,col in enumerate(df.columns,1):
     plt.tight_layout()
     plt.plot()
 plt.show()
+
+fig4 = px.box(df,y="Age",x="HeartDisease",title=f"Distrubution of Age")
+fig4.show()
