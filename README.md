@@ -182,7 +182,7 @@ Now to check the `linearity of the variables` it is a good practice to plot dist
 This can be useful if you want to visualize just the “shape” of some data, as a kind of continuous replacement for the discrete histogram. It can also be used to generate points that look like they came from a certain dataset - this behavior can power simple simulations, where simulated objects are `modeled off of real data`.
 
 
-The first thing you usually notice about a distribution’s shape is whether it has one mode (peak) or more than one. If it’s `unimodal` (has just one peak), like most data sets, the next thing you notice is whether it’s `symmetric or skewed` to one side. If the bulk of the data is at the left and the right tail is longer, we say that the distribution is `skewed right or positively skewed`; if the peak is toward the right and the left tail is longer, we say that the distribution is `skewed left or negatively skewed`.
+The first thing you usually notice about a distribution’s shape is whether it has one mode (peak) or more than one. If it’s `unimodel` (has just one peak), like most data sets, the next thing you notice is whether it’s `symmetric or skewed` to one side. If the bulk of the data is at the left and the right tail is longer, we say that the distribution is `skewed right or positively skewed`; if the peak is toward the right and the left tail is longer, we say that the distribution is `skewed left or negatively skewed`.
 
 
 ```python
@@ -214,9 +214,31 @@ The box plot (a.k.a. box and whisker diagram) is a standardized way of displayin
 
 In the simplest box plot the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and “whiskers” above and below the box show the locations of the minimum and maximum.
 
+
+`Distribution of Age`
+
 ```python
-fig = px.box(df,y="Age",x="HeartDisease",title=f"Distrubution of Age")
+fig = px.box(df,y="Age",x="HeartDisease",title=f"Distribution of Age")
 fig.show()
 ```
 
 ![Distribution Of Age Box And Whiskers ](env/Code/TerminalOutput/DistributionOfAgeBoxWisk.png)
+
+`Distribution of RestingBP`
+
+```python
+fig = px.box(df,y="RestingBP",x="HeartDisease",title=f"Distribution of RestingBP",color="Sex")
+fig.show()
+```
+![Distribution of Cholesterol Box And Whiskers ](env/Code/TerminalOutput/DistributionOfRestingBPBoxWhisk.png)
+
+
+`Distribution of Cholesterol`
+
+```python
+fig = px.box(df,y="Cholesterol",x="HeartDisease",title=f"Distribution of Cholesterol")
+fig.show()
+```
+
+![Distribution of Cholesterol Box And Whiskers ](env/Code/TerminalOutput/DistributionOfCholesterolBoxWhisk.png)
+
