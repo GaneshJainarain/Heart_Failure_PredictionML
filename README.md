@@ -168,4 +168,25 @@ plt.plot()
 plt.show()
 ```
 
-![Distribution of Resting ECG](env/Code/TerminalOutput/PairPlot.png)
+![Pair Plots](env/Code/TerminalOutput/PairPlot.png)
+
+
+Now to check the linearity of the variables it is a good practice to plot distribution graph and look for skewness of features. Kernel density estimate (kde) is a quite useful tool for plotting the shape of a distribution.
+
+`Distribution of Data`
+
+```python
+
+plt.figure(figsize=(15,10))
+for i,col in enumerate(df.columns,1):
+    plt.subplot(4,3,i)
+    plt.title(f"Distribution of {col} Data")
+    sns.histplot(df[col],kde=True)
+    plt.tight_layout()
+    plt.plot()
+plt.show()
+
+```
+![Distribution Of Data](env/Code/TerminalOutput/DistributionOfData.png)
+
+
