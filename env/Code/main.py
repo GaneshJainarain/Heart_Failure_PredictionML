@@ -87,7 +87,13 @@ for i,col in enumerate(df.columns,1):
     sns.histplot(df[col],kde=True)
     plt.tight_layout()
     plt.plot()
-plt.show()
+#plt.show()
 
-fig4 = px.box(df,y="Age",x="HeartDisease",title=f"Distrubution of Age")
-fig4.show()
+fig4 = px.box(df,y="Age",x="HeartDisease",title=f"Distribution of Age")
+#fig4.show()
+
+fig5 = px.box(df,y="RestingBP",x="HeartDisease",title=f"Distribution of RestingBP",color="Sex")
+fig5.show()
+
+fig6 = px.box(df,y="Cholesterol",x="HeartDisease",title=f"Distribution of Cholesterol")
+fig6.show()
