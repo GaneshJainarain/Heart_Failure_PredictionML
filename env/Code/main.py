@@ -93,7 +93,13 @@ fig4 = px.box(df,y="Age",x="HeartDisease",title=f"Distribution of Age")
 #fig4.show()
 
 fig5 = px.box(df,y="RestingBP",x="HeartDisease",title=f"Distribution of RestingBP",color="Sex")
-fig5.show()
+#fig5.show()
 
 fig6 = px.box(df,y="Cholesterol",x="HeartDisease",title=f"Distribution of Cholesterol")
-fig6.show()
+#fig6.show()
+
+fig7 = px.box(df,y="Oldpeak",x="HeartDisease",title=f"Distribution of Oldpeak")
+#fig7.show()
+
+fig8 = px.box(df,y="MaxHR",x="HeartDisease",title=f"Distribution of MaxHR")
+fig8.show()
