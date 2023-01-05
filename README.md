@@ -230,7 +230,7 @@ fig.show()
 fig = px.box(df,y="RestingBP",x="HeartDisease",title=f"Distribution of RestingBP",color="Sex")
 fig.show()
 ```
-![Distribution of Cholesterol Box And Whiskers ](env/Code/TerminalOutput/DistributionOfRestingBPBoxWhisk.png)
+![Distribution of RestingBP Box And Whiskers ](env/Code/TerminalOutput/DistributionOfRestingBPBoxWhisk.png)
 
 
 `Distribution of Cholesterol`
@@ -241,4 +241,24 @@ fig.show()
 ```
 
 ![Distribution of Cholesterol Box And Whiskers ](env/Code/TerminalOutput/DistributionOfCholesterolBoxWhisk.png)
+
+`Distribution of Oldpeak`
+
+```python
+fig = px.box(df,y="Oldpeak",x="HeartDisease",title=f"Distribution of Oldpeak")
+fig.show()
+```
+
+![Distribution of OldPeak Box And Whiskers ](env/Code/TerminalOutput/DistributionOfOldPeakBoxWhisk.png)
+
+`Distribution of MaxHR`
+
+```python
+fig = px.box(df,y="MaxHR",x="HeartDisease",title=f"Distribution of MaxHR")
+fig.show()
+```
+
+![Distribution of MaxHR Box And Whiskers ](env/Code/TerminalOutput/DistributionOfMaxHRBoxWhisk.png)
+
+
 
