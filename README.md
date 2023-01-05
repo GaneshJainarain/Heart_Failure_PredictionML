@@ -171,9 +171,19 @@ plt.show()
 ![Pair Plots](env/Code/TerminalOutput/PairPlot.png)
 
 
-Now to check the linearity of the variables it is a good practice to plot distribution graph and look for skewness of features. Kernel density estimate (kde) is a quite useful tool for plotting the shape of a distribution.
+
 
 `Distribution of Data`
+
+Now to check the `linearity of the variables` it is a good practice to plot distribution graph and look for `skewness of features`. Kernel density estimate (kde) is a quite useful tool for plotting the shape of a distribution.
+
+`Kernel density estimation` is a really useful statistical tool with an intimidating name. Often shortened to KDE, it’s a technique that let’s you create a smooth curve given a set of data.
+
+This can be useful if you want to visualize just the “shape” of some data, as a kind of continuous replacement for the discrete histogram. It can also be used to generate points that look like they came from a certain dataset - this behavior can power simple simulations, where simulated objects are `modeled off of real data`.
+
+
+The first thing you usually notice about a distribution’s shape is whether it has one mode (peak) or more than one. If it’s `unimodal` (has just one peak), like most data sets, the next thing you notice is whether it’s `symmetric or skewed` to one side. If the bulk of the data is at the left and the right tail is longer, we say that the distribution is `skewed right or positively skewed`; if the peak is toward the right and the left tail is longer, we say that the distribution is `skewed left or negatively skewed`.
+
 
 ```python
 
