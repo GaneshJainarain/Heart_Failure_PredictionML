@@ -269,3 +269,10 @@ fig.show()
 - `Handling Null Values`
 - `Feature Scaling`
 - `Handling Categorical Variables`
+
+
+### Handling Null Values
+
+In any real-world dataset, there are always few null values. It doesn’t really matter whether it is a regression, classification or any other kind of problem, no model can handle these `NULL` or `NaN` values on its own so we need to intervene.
+
+In python NULL is represented with NaN. So don’t get confused between these two, they can be used interchangeably.
