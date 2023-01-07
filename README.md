@@ -291,3 +291,11 @@ print(df.isnull().sum())
 
 
 So we can see our data does not have any null values but in case we have missing values, we can remove the data as well.
+
+However, it is not the best option to remove the rows and columns from our dataset as it can result in significant information loss. 
+
+If you have 300K data points then removing 2–3 rows won’t affect your dataset much but if you only have 100 data points and out of which 20 have NaN values for a particular field then you can’t simply drop those rows. 
+
+In real-world datasets, it can happen quite often that you have a large number of NaN values for a particular field. Ex — Suppose we are collecting the data from a survey, then it is possible that there could be an optional field which let’s say 20% of people left blank. 
+
+So when we get the dataset then we need to understand that the remaining 80% of data is still useful, so rather than dropping these values we need to somehow substitute the missing 20% values. We can do this with the help of Imputation.
