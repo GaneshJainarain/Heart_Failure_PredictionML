@@ -106,6 +106,6 @@ fig8 = px.box(df,y="MaxHR",x="HeartDisease",title=f"Distribution of MaxHR")
 
 # Checking for Type of data
 print(df.info())
-
+print("\n")
 # Checking for NULLs in the data
 print(df.isnull().sum())
