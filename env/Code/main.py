@@ -102,4 +102,10 @@ fig7 = px.box(df,y="Oldpeak",x="HeartDisease",title=f"Distribution of Oldpeak")
 #fig7.show()
 
 fig8 = px.box(df,y="MaxHR",x="HeartDisease",title=f"Distribution of MaxHR")
-fig8.show()
+#fig8.show()
+
+# Checking for Type of data
+print(df.info())
+
+# Checking for NULLs in the data
+print(df.isnull().sum())
