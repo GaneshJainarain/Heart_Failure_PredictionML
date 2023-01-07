@@ -276,3 +276,18 @@ fig.show()
 In any real-world dataset, there are always few null values. It doesn’t really matter whether it is a regression, classification or any other kind of problem, no model can handle these `NULL` or `NaN` values on its own so we need to intervene.
 
 In python NULL is represented with NaN. So don’t get confused between these two, they can be used interchangeably.
+
+```python
+# Checking for Type of data
+print(df.info())
+```
+![Info of DF](env/Code/TerminalOutput/DFInfo.png)
+
+```python
+# Checking for NULLs in the data
+print(df.isnull().sum())
+```
+![Is Null vals](env/Code/TerminalOutput/DFIsNull.png)
+
+
+So we can see our data does not have any null values but in case we have missing values, we can remove the data as well.
