@@ -327,3 +327,9 @@ Distance algorithms like `"KNN", "K-means" and "SVM"` are most affected by the r
 When two features have different scales, there is a chance that higher weightage is given to features with higher magnitude. This will impact the performance of the machine learning algorithm and obviously, we do not want our algorithm to be `biased` towards one feature.
 
 Therefore, we `scale our data` before employing a distance based algorithm so that all the features contribute equally to the result.
+
+### Tree-Based Algorithms
+
+`Tree-based algorithms`, on the other hand, are fairly insensitive to the scale of the features. A decision tree is only `splitting a node based on a single feature`. The decision tree splits a node on a feature that increases the homogeneity of the node. This split on a feature is not influenced by other features.
+
+So, there is virtually `no effect of the remaining features on the split`. This is what makes them `invariant` to the scale of the features!
