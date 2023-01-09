@@ -313,3 +313,17 @@ imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 imputer = imputer.fit(df[['Weight']])
 df['Weight'] = imputer.transform(df[['Weight']])
 ```
+
+### Feature Scaling
+
+`Why Should we Use Feature Scaling?`
+
+The first question we need to address – why do we need to scale the variables in our dataset? Some machine learning algorithms are sensitive to feature scaling while others are virtually invariant to it. 
+
+### Distance Based Algorithms
+
+Distance algorithms like `"KNN", "K-means" and "SVM"` are most affected by the range of features. This is because behind the scenes they are using distances between data points to determine their similarity. 
+
+When two features have different scales, there is a chance that higher weightage is given to features with higher magnitude. This will impact the performance of the machine learning algorithm and obviously, we do not want our algorithm to be `biased` towards one feature.
+
+Therefore, we `scale our data` before employing a distance based algorithm so that all the features contribute equally to the result.
