@@ -44,7 +44,7 @@ print(df.dtypes)
 ```
 So, as we can see here the object data has been converted to string
 
-![DF data types](env/Code/TerminalOutput/DFdatatypes.png)
+![DF data types](env/Code/TerminalOutput/DFcorrectDataTypes.png)
 
 ### Getting the categorical columns
 
@@ -333,3 +333,19 @@ Therefore, we `scale our data` before employing a distance based algorithm so th
 `Tree-based algorithms`, on the other hand, are fairly insensitive to the scale of the features. A decision tree is only `splitting a node based on a single feature`. The decision tree splits a node on a feature that increases the homogeneity of the node. This split on a feature is not influenced by other features.
 
 So, there is virtually `no effect of the remaining features on the split`. This is what makes them `invariant` to the scale of the features!
+
+### Handling Categorical Variables
+
+Categorical variables/features are any feature type can be classified into two major types:
+
+- `Nominal`
+- `Ordinal`
+
+`Nominal variables` are variables that have two or more categories which do not have any kind of order associated with them. 
+
+For example, if gender is classified into two groups, i.e. male and female, it can be considered as a nominal variable. 
+
+`Ordinal variables`, on the other hand, have “levels” or categories with a particular order associated with them. 
+
+For example, an ordinal categorical variable can be a feature with three different levels: low, medium and high. `Order is important`.
+
