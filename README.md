@@ -349,3 +349,17 @@ For example, if gender is classified into two groups, i.e. male and female, it c
 
 For example, an ordinal categorical variable can be a feature with three different levels: low, medium and high. `Order is important`.
 
+It is a `binary classification` problem, the target here is `not skewed` but we use the best metric for this binary classification problem which would be `Area Under the ROC Curve (AUC)`. We can use precision and recall too, but AUC combines these two metrics. Thus, we will be using AUC to evaluate the model that we build on this dataset.
+
+For now, just know that the AUC-ROC curve helps us `visualize how well our machine learning classifier is performing`. Although it works for only binary classification problems, can extend it to evaluate multi-class classification problems too.
+
+
+
+
+We have to know that computers do not understand text data and thus, we need to convert these categories to numbers. A simple way of doing that can be to use :
+
+```python
+from sklearn.preprocessing import LabelEncoder
+
+
+```
