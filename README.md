@@ -361,5 +361,4 @@ We have to know that computers do not understand text data and thus, we need to 
 ```python
 from sklearn.preprocessing import LabelEncoder
 
-
 ```
