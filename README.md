@@ -354,8 +354,6 @@ It is a `binary classification` problem, the target here is `not skewed` but we 
 For now, just know that the AUC-ROC curve helps us `visualize how well our machine learning classifier is performing`. Although it works for only binary classification problems, can extend it to evaluate multi-class classification problems too.
 
 
-
-
 We have to know that computers do not understand text data and thus, we need to convert these categories to numbers. A simple way of doing that can be to use :
 
 ```python
