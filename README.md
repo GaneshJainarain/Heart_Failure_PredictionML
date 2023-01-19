@@ -359,4 +359,8 @@ We have to know that computers do not understand text data and thus, we need to 
 ```python
 from sklearn.preprocessing import LabelEncoder
 
+df[string_col].head()
+for col in string_col:
+    print(f"The distribution of categorical valeus in the {col} is : ")
+    print(df[col].value_counts())
 ```
