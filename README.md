@@ -334,6 +334,19 @@ Therefore, we `scale our data` before employing a distance based algorithm so th
 
 So, there is virtually `no effect of the remaining features on the split`. This is what makes them `invariant` to the scale of the features!
 
+### What is Normalization?
+
+`Normalization` is a scaling technique in which values are shifted and rescaled so that they end up ranging between 0 and 1. It is also known as Min-Max scaling.
+
+Here's the formula for normalization :
+
+![Normalization](https://i.stack.imgur.com/EuitP.png)
+
+
+
+
+
+
 ### Handling Categorical Variables
 
 Categorical variables/features are any feature type can be classified into two major types:
