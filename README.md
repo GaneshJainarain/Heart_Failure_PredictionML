@@ -356,11 +356,27 @@ For now, just know that the AUC-ROC curve helps us `visualize how well our machi
 
 We have to know that computers do not understand text data and thus, we need to convert these categories to numbers. A simple way of doing that can be to use :
 
+- Label Encoding
+
 ```python
 from sklearn.preprocessing import LabelEncoder
-
-df[string_col].head()
-for col in string_col:
-    print(f"The distribution of categorical valeus in the {col} is : ")
-    print(df[col].value_counts())
 ```
+
+- One Hot Encoding
+
+```python
+pd.get_dummies()
+```
+
+`We need to understand where to use which type of label encoding`
+
+`For not Tree based Machine Learning Algorithms the best way to go will be to use One-Hot Encoding`
+
+- `One-Hot-Encoding` has the advantage that the result is binary rather than ordinal and that everything sits in an orthogonal vector space.
+
+- The disadvantage is that for `high cardinality`, the feature space can really blow up quickly and you start fighting with the curse of dimensionality. In these cases, I typically employ one-hot-encoding followed by PCA for dimensionality reduction. I find that the judicious combination of one-hot plus PCA can seldom be beat by other encoding schemes. PCA finds the linear overlap, so will naturally tend to group similar features into the same feature
+
+`For Tree based Machine Learning Algorithms the best way to go is with Label Encoding`
+
+- `LabelEncoder` can turn [dog,cat,dog,mouse,cat] into [1,2,1,3,2], but then the imposed ordinality means that the average of dog and mouse is cat. Still there are algorithms like decision trees and random forests that can work with categorical variables just fine and LabelEncoder can be used to store values using less disk space.
+
