@@ -152,7 +152,7 @@ ax4.set_title('After Min-Max Scaling')
  
 sns.kdeplot(minmax_df['x1'], ax = ax4, color ='black')
 sns.kdeplot(minmax_df['x2'], ax = ax4, color ='g')
-plt.show() 
+#plt.show() 
 
 
 df[string_col].head()
