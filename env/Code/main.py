@@ -152,7 +152,7 @@ ax4.set_title('After Min-Max Scaling')
  
 sns.kdeplot(minmax_df['x1'], ax = ax4, color ='black')
 sns.kdeplot(minmax_df['x2'], ax = ax4, color ='g')
-#plt.show() 
+plt.show() 
 
 
 df[string_col].head()
@@ -160,4 +160,9 @@ for col in string_col:
     print(f"The distribution of categorical values in the {col} is : ")
     print(df[col].value_counts())
     print("\n")
+
+
+# which will be used with Tree Based Algorthms
+df_tree = df.apply(LabelEncoder().fit_transform)
+print(df_tree.head())
 
