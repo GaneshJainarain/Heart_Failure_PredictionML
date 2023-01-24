@@ -469,8 +469,14 @@ for col in string_col:
 
 ![Distribution Of Categorical Features](env/Code/TerminalOutput/DistributionCategoricalVals.png)
 
-
-
+`Label Encoding`
+```python
+#Label Encoding 
+# which will be used with Tree Based Algorthms
+df_tree = df.apply(LabelEncoder().fit_transform)
+print(df_tree.head())
+```
+![Label Encoder](env/Code/TerminalOutput/LabelEncoder.png)
 
 
 We can use this directly in many tree-based models:
@@ -478,7 +484,11 @@ We can use this directly in many tree-based models:
 - `Decision trees`
 - `Random forest`
 - `Extra Trees`
-    Or any kind of boosted trees model
-       - `XGBoost`
-       - `GBM`
-       - `LightGBM`
+
+ `Or any kind of boosted trees model`
+
+- `XGBoost`
+- `GBM`
+- `LightGBM`
+
+This type of encoding cannot be used in linear models, support vector machines or neural networks as they expect data to be normalized (or standardized). For these types of models, we can binarize the data. As shown bellow 
