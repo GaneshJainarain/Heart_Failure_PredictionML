@@ -7,6 +7,10 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 warnings.filterwarnings("ignore")
 pd.set_option("display.max_rows",None)
+from sklearn import preprocessing
+import matplotlib 
+matplotlib.style.use('ggplot')
+from sklearn.preprocessing import LabelEncoder
 
 df = pd.read_csv("Code/heart.csv")
 print(df.head())
@@ -92,10 +96,10 @@ for i,col in enumerate(df.columns,1):
 fig4 = px.box(df,y="Age",x="HeartDisease",title=f"Distribution of Age")
 #fig4.show()
 
-fig5 = px.box(df,y="RestingBP",x="HeartDisease",title=f"Distribution of RestingBP",color="Sex")
+fig5 = px.box(df,y="RestingBP", x="HeartDisease",title=f"Distribution of RestingBP",color="Sex")
 #fig5.show()
 
-fig6 = px.box(df,y="Cholesterol",x="HeartDisease",title=f"Distribution of Cholesterol")
+fig6 = px.box(df,y="Cholesterol", x="HeartDisease",title=f"Distribution of Cholesterol")
 #fig6.show()
 
 fig7 = px.box(df,y="Oldpeak",x="HeartDisease",title=f"Distribution of Oldpeak")
@@ -109,3 +113,51 @@ print(df.info())
 print("\n")
 # Checking for NULLs in the data
 print(df.isnull().sum())
+
+# data
+x = pd.DataFrame({
+    # Distribution with lower outliers
+    'x1': np.concatenate([np.random.normal(20, 2, 1000), np.random.normal(1, 2, 25)]),
+    # Distribution with higher outliers
+    'x2': np.concatenate([np.random.normal(30, 2, 1000), np.random.normal(50, 2, 25)]),
+})
+np.random.normal
+ 
+scaler = preprocessing.RobustScaler()
+robust_df = scaler.fit_transform(x)
+robust_df = pd.DataFrame(robust_df, columns =['x1', 'x2'])
+ 
+scaler = preprocessing.StandardScaler()
+standard_df = scaler.fit_transform(x)
+standard_df = pd.DataFrame(standard_df, columns =['x1', 'x2'])
+ 
+scaler = preprocessing.MinMaxScaler()
+minmax_df = scaler.fit_transform(x)
+minmax_df = pd.DataFrame(minmax_df, columns =['x1', 'x2'])
+ 
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(ncols = 4, figsize =(20, 5))
+ax1.set_title('Before Scaling')
+ 
+sns.kdeplot(x['x1'], ax = ax1, color ='r')
+sns.kdeplot(x['x2'], ax = ax1, color ='b')
+ax2.set_title('After Robust Scaling')
+ 
+sns.kdeplot(robust_df['x1'], ax = ax2, color ='red')
+sns.kdeplot(robust_df['x2'], ax = ax2, color ='blue')
+ax3.set_title('After Standard Scaling')
+ 
+sns.kdeplot(standard_df['x1'], ax = ax3, color ='black')
+sns.kdeplot(standard_df['x2'], ax = ax3, color ='g')
+ax4.set_title('After Min-Max Scaling')
+ 
+sns.kdeplot(minmax_df['x1'], ax = ax4, color ='black')
+sns.kdeplot(minmax_df['x2'], ax = ax4, color ='g')
+#plt.show() 
+
+
+df[string_col].head()
+for col in string_col:
+    print(f"The distribution of categorical values in the {col} is : ")
+    print(df[col].value_counts())
+    print("\n")
+
