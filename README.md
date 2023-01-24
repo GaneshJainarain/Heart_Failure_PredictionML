@@ -365,6 +365,54 @@ Here's the formula for Standardization:
 The choice of using normalization or standardization will `depend on your problem and the machine learning algorithm` you are using.
 
 
+### Robust Scaler
+
+When working with outliers we can use `Robust Scaling` for scaling our data, It scales features using statistics that are robust to outliers. This method removes the median and scales the data in the range between 1st quartile and 3rd quartile. i.e., in between 25th quantile and 75th quantile range. 
+
+This range is also called an `Interquartile range`. The median and the interquartile range are then stored so that it could be used upon future data using the transform method. If outliers are present in the dataset, then the median and the interquartile range provide better results and outperform the sample mean and variance. RobustScaler uses the interquartile range so that it is robust to outliers.
+
+```python
+x = pd.DataFrame({
+    # Distribution with lower outliers
+    'x1': np.concatenate([np.random.normal(20, 2, 1000), np.random.normal(1, 2, 25)]),
+    # Distribution with higher outliers
+    'x2': np.concatenate([np.random.normal(30, 2, 1000), np.random.normal(50, 2, 25)]),
+})
+np.random.normal
+ 
+scaler = preprocessing.RobustScaler()
+robust_df = scaler.fit_transform(x)
+robust_df = pd.DataFrame(robust_df, columns =['x1', 'x2'])
+ 
+scaler = preprocessing.StandardScaler()
+standard_df = scaler.fit_transform(x)
+standard_df = pd.DataFrame(standard_df, columns =['x1', 'x2'])
+ 
+scaler = preprocessing.MinMaxScaler()
+minmax_df = scaler.fit_transform(x)
+minmax_df = pd.DataFrame(minmax_df, columns =['x1', 'x2'])
+ 
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(ncols = 4, figsize =(20, 5))
+ax1.set_title('Before Scaling')
+ 
+sns.kdeplot(x['x1'], ax = ax1, color ='r')
+sns.kdeplot(x['x2'], ax = ax1, color ='b')
+ax2.set_title('After Robust Scaling')
+ 
+sns.kdeplot(robust_df['x1'], ax = ax2, color ='red')
+sns.kdeplot(robust_df['x2'], ax = ax2, color ='blue')
+ax3.set_title('After Standard Scaling')
+ 
+sns.kdeplot(standard_df['x1'], ax = ax3, color ='black')
+sns.kdeplot(standard_df['x2'], ax = ax3, color ='g')
+ax4.set_title('After Min-Max Scaling')
+ 
+sns.kdeplot(minmax_df['x1'], ax = ax4, color ='black')
+sns.kdeplot(minmax_df['x2'], ax = ax4, color ='g')
+plt.show()
+```
+![Robust Scaling](env/Code/TerminalOutput/ScalingData.png)
+
 ### Handling Categorical Variables
 
 Categorical variables/features are any feature type can be classified into two major types:
@@ -422,3 +470,15 @@ for col in string_col:
 ![Distribution Of Categorical Features](env/Code/TerminalOutput/DistributionCategoricalVals.png)
 
 
+
+
+
+We can use this directly in many tree-based models:
+
+- `Decision trees`
+- `Random forest`
+- `Extra Trees`
+    Or any kind of boosted trees model
+       - `XGBoost`
+       - `GBM`
+       - `LightGBM`
