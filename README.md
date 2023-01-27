@@ -506,3 +506,12 @@ df_nontree.drop("HeartDisease",axis=1,inplace=True)
 df_nontree=pd.concat([df_nontree,df[target]],axis=1)
 df_nontree.head()
 ```
+
+### Cross Validation 
+
+Choosing the right cross-validation depends on the dataset you are dealing with, and one’s choice of cross-validation on one dataset may or may not apply to other datasets. However, there are a few types of cross-validation techniques which are the most popular and widely used. These include:
+
+k-fold cross-validation
+stratified k-fold cross-validation Cross-validation is dividing training data into a few parts. We train the model on some of these parts and test on the remaining parts 
+
+- `K Fold`
