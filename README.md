@@ -517,3 +517,6 @@ stratified k-fold cross-validation Cross-validation is dividing training data in
 - `k-fold cross-validation`
 - `stratified k-fold cross-validation` Cross-validation is dividing training data into a few parts. We train the model on some of these parts and test on the remaining parts
 
+- `K-fold cross-validation`
+
+As you can see, we divide the samples and the targets associated with them. We can divide the data into k different sets which are exclusive of each other. This is known as k-fold cross-validation, We can split any data into k-equal parts using KFold from scikit-learn. Each sample is assigned a value from 0 to k-1 when using k-fold cross validation.
