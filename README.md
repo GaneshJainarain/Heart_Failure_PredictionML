@@ -514,5 +514,6 @@ Choosing the right cross-validation depends on the dataset you are dealing with,
 k-fold cross-validation
 stratified k-fold cross-validation Cross-validation is dividing training data into a few parts. We train the model on some of these parts and test on the remaining parts 
 
-- `K Fold Validation`
+- `k-fold cross-validation`
+- `stratified k-fold cross-validation` Cross-validation is dividing training data into a few parts. We train the model on some of these parts and test on the remaining parts
 
