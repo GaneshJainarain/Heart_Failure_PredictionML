@@ -536,4 +536,6 @@ Using simple k-fold cross-validation for a dataset like this can result in folds
 So, in each fold, you will have the same 90% positive and 10% negative samples. Thus, whatever metric you choose to evaluate, it will give similar results across all folds.
 
 
-### Training our Machine Learning Model
+## Training our Machine Learning Model
+
+### NON-TREE BASED ALGORITHMS
