@@ -522,8 +522,18 @@ stratified k-fold cross-validation Cross-validation is dividing training data in
 
 #### `K-fold cross-validation`
 
-As you can see, we divide the samples and the targets associated with them. We can divide the data into k different sets which are exclusive of each other. This is known as k-fold cross-validation, We can split any data into k-equal parts using KFold from scikit-learn. Each sample is assigned a value from 0 to k-1 when using k-fold cross validation.
+As you can see, we divide the samples and the targets associated with them. We can divide the data into k different sets which are exclusive of each other. 
 
+This is known as k-fold cross-validation, We can split any data into k-equal parts using KFold from scikit-learn. Each sample is assigned a value from 0 to k-1 when using k-fold cross validation.
+
+
+#### `Stratified k-fold cross-validation`
+
+If you have a skewed dataset for binary classification with 90% positive samples and only 10% negative samples, you don't want to use random k-fold cross-validation.
+
+Using simple k-fold cross-validation for a dataset like this can result in folds with all negative samples. In these cases, we prefer using stratified k-fold cross-validation. Stratified k-fold cross-validation keeps the ratio of labels in each fold constant. 
+
+So, in each fold, you will have the same 90% positive and 10% negative samples. Thus, whatever metric you choose to evaluate, it will give similar results across all folds.
 
 
 ### Training our Machine Learning Model
