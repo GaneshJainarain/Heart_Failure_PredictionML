@@ -496,13 +496,15 @@ We can use this directly in many tree-based models:
 
 This type of encoding cannot be used in linear models, support vector machines or neural networks as they expect data to be normalized (or standardized). For these types of models, we can binarize the data. As shown bellow 
 
-- `Non Tree Based`
+`Non Tree Based`
 
 ```python
 ## Creating one hot encoded features for working with non tree based algorithms 
 df_nontree = pd.get_dummies(df,columns = string_col,drop_first=False)
-df_nontree.head()
+print(df_nontree.head())
 ```
+![One Hot Encoding](env/Code/TerminalOutput/OneHotEncoding.png)
+
 
 `Getting the target column at the end`
 
@@ -514,13 +516,16 @@ df_nontree.drop("HeartDisease",axis = 1,inplace = True)
 df_nontree =npd.concat([df_nontree,df[target]],axis = 1)
 df_nontree.head()
 ```
+![Target Value](env/Code/TerminalOutput/TargetValueEnd.png)
 
 ### Cross Validation 
 
-Choosing the right cross-validation depends on the dataset you are dealing with, and one’s choice of cross-validation on one dataset may or may not apply to other datasets. However, there are a few types of cross-validation techniques which are the most popular and widely used. These include:
+Choosing the right `cross-validation` depends on the dataset you are dealing with, and one’s choice of cross-validation on one dataset may or may not apply to other datasets. However, there are a few types of cross-validation techniques which are the most popular and widely used. These include:
 
-k-fold cross-validation
-stratified k-fold cross-validation Cross-validation is dividing training data into a few parts. We train the model on some of these parts and test on the remaining parts 
+`k-fold cross-validation`
+`stratified k-fold cross-validation` 
+
+Cross-validation is dividing training data into a few parts. We train the model on some of these parts and test on the remaining parts 
 
 - `k-fold cross-validation`
 
@@ -549,3 +554,13 @@ So, in each fold, you will have the same 90% positive and 10% negative samples. 
 ### NON-TREE BASED ALGORITHMS
 
 ### Using Logistic Regression
+
+Logistic regression is a calculation used to predict a binary outcome: either something happens, or does not. This can be exhibited as Yes/No, Pass/Fail, Alive/Dead, etc.
+
+Independent variables are analyzed to determine the `binary outcome` with the results falling into one of two categories. The independent variables can be categorical or numeric, but the dependent variable is always categorical. Written like this:
+
+`P(Y=1|X) or P(Y=0|X)`
+
+It calculates the probability of dependent variable Y, given independent variable X.
+
+This can be used to calculate the probability of a word having a `positive or negative connotation` (0, 1, or on a scale between). Or it can be used to determine the object contained in a photo (tree, flower, grass, etc.), with each object given a probability between 0 and 1.
