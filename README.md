@@ -470,6 +470,9 @@ for col in string_col:
 ![Distribution Of Categorical Features](env/Code/TerminalOutput/DistributionCategoricalVals.png)
 
 `Label Encoding`
+
+`Tree Based`
+
 ```python
 #Label Encoding 
 # which will be used with Tree Based Algorthms
@@ -493,17 +496,22 @@ We can use this directly in many tree-based models:
 
 This type of encoding cannot be used in linear models, support vector machines or neural networks as they expect data to be normalized (or standardized). For these types of models, we can binarize the data. As shown bellow 
 
+- `Non Tree Based`
+
 ```python
-## Creaeting one hot encoded features for working with non tree based algorithms 
-df_nontree=pd.get_dummies(df,columns=string_col,drop_first=False)
+## Creating one hot encoded features for working with non tree based algorithms 
+df_nontree = pd.get_dummies(df,columns = string_col,drop_first=False)
 df_nontree.head()
 ```
+
+`Getting the target column at the end`
+
 ```python
 # Getting the target column at the end
-target="HeartDisease"
-y=df_nontree[target].values
-df_nontree.drop("HeartDisease",axis=1,inplace=True)
-df_nontree=pd.concat([df_nontree,df[target]],axis=1)
+target = "HeartDisease"
+y = df_nontree[target].values
+df_nontree.drop("HeartDisease",axis = 1,inplace = True)
+df_nontree =npd.concat([df_nontree,df[target]],axis = 1)
 df_nontree.head()
 ```
 
