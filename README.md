@@ -449,7 +449,7 @@ pd.get_dummies()
 
 `We need to understand where to use which type of label encoding`
 
-`For not Tree based Machine Learning Algorithms the best way to go will be to use One-Hot Encoding`
+`For non Tree based Machine Learning Algorithms the best way to go will be to use One-Hot Encoding`
 
 - `One-Hot-Encoding` has the advantage that the result is binary rather than ordinal and that everything sits in an orthogonal vector space.
 
@@ -539,3 +539,5 @@ So, in each fold, you will have the same 90% positive and 10% negative samples. 
 ## Training our Machine Learning Model
 
 ### NON-TREE BASED ALGORITHMS
+
+### Using Logistic Regression
