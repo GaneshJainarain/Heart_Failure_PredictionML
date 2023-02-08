@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd 
 import warnings
 import seaborn as sns
+
 import matplotlib.pyplot as plt
 import plotly.express as px
 warnings.filterwarnings("ignore")
@@ -11,6 +12,15 @@ from sklearn import preprocessing
 import matplotlib 
 matplotlib.style.use('ggplot')
 from sklearn.preprocessing import LabelEncoder
+
+from sklearn import model_selection
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix,classification_report,accuracy_score,roc_auc_score
+from sklearn.preprocessing import RobustScaler,MinMaxScaler,StandardScaler
+acc_log=[]
+warnings.filterwarnings("ignore")
+
+pd.set_option('display.max_columns', None)
 
 df = pd.read_csv("Code/heart.csv")
 print(df.head())
@@ -22,7 +32,6 @@ string_col = df.select_dtypes(include="object").columns
 df[string_col] = df[string_col].astype("string")
 print(df.dtypes)
 print("\n")
-
 
 
 string_col = df.select_dtypes("string").columns.to_list()
@@ -161,8 +170,20 @@ for col in string_col:
     print(df[col].value_counts())
     print("\n")
 
-
 # which will be used with Tree Based Algorthms
 df_tree = df.apply(LabelEncoder().fit_transform)
 print(df_tree.head())
+
+print("\n")
+print("-----")
+## Creating one hot encoded features for working with non tree based algorithms 
+df_nontree = pd.get_dummies(df,columns = string_col,drop_first=False)
+print(df_nontree.head())
+
+# Getting the target column at the end
+target = "HeartDisease"
+y = df_nontree[target].values
+df_nontree.drop("HeartDisease",axis = 1,inplace = True)
+df_nontree =pd.concat([df_nontree,df[target]],axis = 1)
+print(df_nontree.head())
 
