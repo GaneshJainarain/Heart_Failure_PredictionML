@@ -187,3 +187,31 @@ df_nontree.drop("HeartDisease",axis = 1,inplace = True)
 df_nontree =pd.concat([df_nontree,df[target]],axis = 1)
 print(df_nontree.head())
 
+feature_col_nontree=df_nontree.columns.to_list()
+feature_col_nontree.remove(target)
+
+
+kf=model_selection.StratifiedKFold(n_splits=5)
+for fold , (trn_,val_) in enumerate(kf.split(X=df_nontree,y=y)):
+    
+    X_train=df_nontree.loc[trn_,feature_col_nontree]
+    y_train=df_nontree.loc[trn_,target]
+    
+    X_valid=df_nontree.loc[val_,feature_col_nontree]
+    y_valid=df_nontree.loc[val_,target]
+    
+    #print(pd.DataFrame(X_valid).head())
+    ro_scaler=MinMaxScaler()
+    X_train=ro_scaler.fit_transform(X_train)
+    X_valid=ro_scaler.transform(X_valid)
+    
+    
+    clf=LogisticRegression()
+    clf.fit(X_train,y_train)
+    y_pred=clf.predict(X_valid)
+    print(f"The fold is : {fold} : ")
+    print(classification_report(y_valid,y_pred))
+    acc=roc_auc_score(y_valid,y_pred)
+    acc_log.append(acc)
+    print(f"The accuracy for Fold {fold+1} : {acc}")
+    pass
