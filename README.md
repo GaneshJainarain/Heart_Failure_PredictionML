@@ -605,6 +605,6 @@ for fold , (trn_,val_) in enumerate(kf.split(X=df_nontree,y=y)):
 
 avg_score = np.mean(acc_log)
 print(f"The average accuracy is : {avg_score}")
-
-
 ```
+
+![Logistic Reg Stratified KFold](env/Code/TerminalOutput/LogisticRegKFold.png)
