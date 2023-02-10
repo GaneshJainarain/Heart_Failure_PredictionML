@@ -183,6 +183,7 @@ print(df_nontree.head())
 
 # Getting the target column at the end
 target = "HeartDisease"
+print("-------")
 y = df_nontree[target].values
 df_nontree.drop("HeartDisease",axis = 1,inplace = True)
 df_nontree =pd.concat([df_nontree,df[target]],axis = 1)
@@ -192,7 +193,7 @@ feature_col_nontree=df_nontree.columns.to_list()
 feature_col_nontree.remove(target)
 
 
-kf = model_selection.StratifiedKFold(n_splits=5, shuffle=True)
+kf = model_selection.StratifiedKFold(n_splits=3, shuffle=True)
 for fold , (trn_,val_) in enumerate(kf.split(X=df_nontree,y=y)):
     
     X_train=df_nontree.loc[trn_,feature_col_nontree]
@@ -215,7 +216,6 @@ for fold , (trn_,val_) in enumerate(kf.split(X=df_nontree,y=y)):
     acc=roc_auc_score(y_valid,y_pred)
     acc_log.append(acc)
     print(f"The accuracy for Fold {fold+1} : {acc}")
-    print("\n")
 
 #print(acc_log)
 avg_score = np.mean(acc_log)
