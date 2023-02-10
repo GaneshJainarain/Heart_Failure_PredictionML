@@ -564,3 +564,47 @@ Independent variables are analyzed to determine the `binary outcome` with the re
 It calculates the probability of dependent variable Y, given independent variable X.
 
 This can be used to calculate the probability of a word having a `positive or negative connotation` (0, 1, or on a scale between). Or it can be used to determine the object contained in a photo (tree, flower, grass, etc.), with each object given a probability between 0 and 1.
+
+```python
+
+feature_col_nontree=df_nontree.columns.to_list()
+feature_col_nontree.remove(target)
+
+```
+
+```python
+from sklearn import model_selection
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix,classification_report,accuracy_score,roc_auc_score
+from sklearn.preprocessing import RobustScaler,MinMaxScaler,StandardScaler
+acc_log=[]
+
+kf=model_selection.StratifiedKFold(n_splits=5)
+for fold , (trn_,val_) in enumerate(kf.split(X=df_nontree,y=y)):
+    
+    X_train=df_nontree.loc[trn_,feature_col_nontree]
+    y_train=df_nontree.loc[trn_,target]
+    
+    X_valid=df_nontree.loc[val_,feature_col_nontree]
+    y_valid=df_nontree.loc[val_,target]
+    
+    #print(pd.DataFrame(X_valid).head())
+    ro_scaler=MinMaxScaler()
+    X_train=ro_scaler.fit_transform(X_train)
+    X_valid=ro_scaler.transform(X_valid)
+    
+    
+    clf=LogisticRegression()
+    clf.fit(X_train,y_train)
+    y_pred=clf.predict(X_valid)
+    print(f"The fold is : {fold} : ")
+    print(classification_report(y_valid,y_pred))
+    acc=roc_auc_score(y_valid,y_pred)
+    acc_log.append(acc)
+    print(f"The accuracy for Fold {fold+1} : {acc}")
+
+avg_score = np.mean(acc_log)
+print(f"The average accuracy is : {avg_score}")
+
+
+```
