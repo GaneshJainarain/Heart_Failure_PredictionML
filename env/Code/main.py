@@ -19,6 +19,7 @@ from sklearn.metrics import confusion_matrix,classification_report,accuracy_scor
 from sklearn.preprocessing import RobustScaler,MinMaxScaler,StandardScaler
 acc_log=[]
 warnings.filterwarnings("ignore")
+from sklearn.model_selection import cross_val_score
 
 pd.set_option('display.max_columns', None)
 
@@ -191,7 +192,7 @@ feature_col_nontree=df_nontree.columns.to_list()
 feature_col_nontree.remove(target)
 
 
-kf=model_selection.StratifiedKFold(n_splits=5)
+kf = model_selection.StratifiedKFold(n_splits=5, shuffle=True)
 for fold , (trn_,val_) in enumerate(kf.split(X=df_nontree,y=y)):
     
     X_train=df_nontree.loc[trn_,feature_col_nontree]
@@ -214,4 +215,10 @@ for fold , (trn_,val_) in enumerate(kf.split(X=df_nontree,y=y)):
     acc=roc_auc_score(y_valid,y_pred)
     acc_log.append(acc)
     print(f"The accuracy for Fold {fold+1} : {acc}")
-    pass
+    print("\n")
+
+#print(acc_log)
+avg_score = np.mean(acc_log)
+print(f"The average accuracy is : {avg_score}")
+
+  
