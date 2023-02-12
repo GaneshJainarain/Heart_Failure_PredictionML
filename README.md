@@ -608,3 +608,11 @@ print(f"The average accuracy is : {avg_score}")
 ```
 
 ![Logistic Reg Stratified KFold](env/Code/TerminalOutput/LogisticRegKFold.png)
+
+
+### Tree Based Algorithms
+
+`Using Decision tree Classifier`
+A decision tree is a supervised learning algorithm that is perfect for classification problems, as it’s able to order classes on a precise level. 
+
+It works like a flow chart, separating data points into two similar categories at a time from the “tree trunk” to “branches,” to “leaves,” where the categories become more finitely similar. This creates categories within categories, allowing for organic classification with limited human supervision.
