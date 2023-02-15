@@ -616,3 +616,7 @@ print(f"The average accuracy is : {avg_score}")
 A decision tree is a supervised learning algorithm that is perfect for classification problems, as it’s able to order classes on a precise level. 
 
 It works like a flow chart, separating data points into two similar categories at a time from the “tree trunk” to “branches,” to “leaves,” where the categories become more finitely similar. This creates categories within categories, allowing for organic classification with limited human supervision.
+
+`Using Random Forest Classifier`
+
+`Random forest`, like its name implies, consists of a large number of individual decision trees that operate as an ensemble. Each individual tree in the random forest spits out a class prediction and the class with the most votes becomes our model’s prediction (see figure below).
