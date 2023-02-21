@@ -628,3 +628,27 @@ A large number of relatively uncorrelated models (trees) operating as a committe
 The `low correlation between models is the key`. Just like how investments with low correlations (like stocks and bonds) come together to form a portfolio that is greater than the sum of its parts, uncorrelated models can produce `ensemble predictions that are more accurate than any of the individual predictions`. 
 
 The reason for this wonderful effect is that the trees protect each other from their individual errors (as long as they don’t constantly all err in the same direction). While some trees may be wrong, `many other trees will be right`, so as a group the trees are able to move in the correct direction.
+
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+acc_RandF=[]
+kf=model_selection.StratifiedKFold(n_splits=5)
+for fold , (trn_,val_) in enumerate(kf.split(X=df_tree,y=y)):
+    
+    X_train=df_tree.loc[trn_,feature_col_tree]
+    y_train=df_tree.loc[trn_,target]
+    
+    X_valid=df_tree.loc[val_,feature_col_tree]
+    y_valid=df_tree.loc[val_,target]
+    
+    clf=RandomForestClassifier(n_estimators=200,criterion="entropy")
+    clf.fit(X_train,y_train)
+    y_pred=clf.predict(X_valid)
+    print(f"The fold is : {fold} : ")
+    print(classification_report(y_valid,y_pred))
+    acc=roc_auc_score(y_valid,y_pred)
+    acc_RandF.append(acc)
+    print(f"The accuracy for {fold+1} : {acc}")
+
+```
